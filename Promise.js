@@ -1,7 +1,7 @@
 let students = {
     "mansoor": 30,
     "shabbir": 20,
-    "Subhan": 45
+    "Subhan ali": 45
 }
 
 let topper = {}
@@ -38,4 +38,7 @@ function getTopper(students) {
 
 getTopper(students).then((res)=>{
     greetings(res.name,res.rank);
+})
+.catch((err)=>{
+    console.log("some problem arisen :",err)
 })

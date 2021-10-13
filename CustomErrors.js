@@ -11,11 +11,11 @@ class ValidateInput extends Error {
 }
 
 let input2 = {
-    userName: "Ali",
+    userName: "Ali23",
     email: "abc@gmail.com",
     password: "1234",
     age: "2002-02-02",
-    country: undefined
+    country: "USA"
 }
 
 
@@ -66,47 +66,50 @@ catch (err) {
 
 // Wrapping Errors
 
-function checkValidity(value) {
-    try {
-        for (let value of Object.keys(input2)) {
-            if (input2[value] === undefined) {
-                throw new ValidateInput(`please provide  ${value}`);
+function checkValidity(inputValue) {
+
+    for (let value of Object.keys(inputValue)) {
+        if (inputValue[value] === undefined) {
+            throw new ValidateInput(`please provide  ${value}`);
 
 
-
-            }
         }
     }
-    catch (err) {
-        console.log("Type: ", err.name)
-        console.log("Description: ", err.message)
-        return;
-    }
 
-    try {
-        let user = value.userName;
-        for (let i = 0; i < user.length; i++) {
-            let code = user.charCodeAt(i)
-            if (code >= 65 && code <= 90 && code >= 97 && code <= 122) {
-                console.log("valid name input")
-            }
-            else {
-                throw new ValidateIndividualInput("only english alphbets are allowed")
-            }
+
+
+
+
+    let user = inputValue.userName;
+    for (let i = 0; i < user.length; i++) {
+        let code = user.charCodeAt(i)
+        if (code >= 65 && code <= 90 && code >= 97 && code <= 122) {
+            console.log("valid name input")
+        }
+        else {
+            return new ValidateIndividualInput("only english alphbets are allowed")
         }
     }
-    catch (err) {
-        console.log("Type: ", err.name)
-        console.log("Description: ", err.message)
+}
+   
+
+
+
+
+
+try{
+
+    checkValidity(input2)
+}
+catch(err){
+    if (err instanceof ValidateInput){
+        console.log(err.message)
+    }else if(err instanceof ValidateIndividualInput){
+        console.log(err.message)
     }
-
-
-
-
 
 }
 
-checkValidity(input2)
 
 
 
