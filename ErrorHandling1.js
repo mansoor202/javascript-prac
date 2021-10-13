@@ -46,3 +46,9 @@ for (let value of Object.keys(input2)) {
 catch(err){
     console.log(err.message)
 }
+finally{
+    console.log("Thank you for using our services")
+
+}
+
+
