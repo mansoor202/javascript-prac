@@ -48,3 +48,15 @@ getTopper(students).then((res)=>{
 .catch((err)=>{
     console.log("some problem arisen :",err)
 })
+
+
+
+async function makeResult(){
+
+    let topperStudent=await getTopper(students);
+    console.log("topper while making result ",topperStudent)
+    
+
+
+}
+
