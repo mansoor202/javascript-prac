@@ -44,3 +44,16 @@ function maxAge(age1,age2,...remainings){
  
 
 maxAge(23,12,23,34,29)
+
+//copying an array / object
+
+let student ={
+    name:"Usman",
+    age:30,
+    address:"gujranwala"
+}
+
+const candidate={...student}
+
+console.log("candidate copied but immutale ",candidate)
+
