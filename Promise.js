@@ -39,6 +39,12 @@ function getTopper(students) {
 getTopper(students).then((res)=>{
     greetings(res.name,res.rank);
 })
+.then(()=>{
+    console.log("you are promoted to next standard")
+})
+.then(()=>{
+    console.log("you can get scholarship")
+})
 .catch((err)=>{
     console.log("some problem arisen :",err)
 })
