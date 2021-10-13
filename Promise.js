@@ -6,6 +6,7 @@ let students = {
 
 let topper = {}
 function greetings(name, rank) {
+    
     console.log(`congratulation ${name}: You stood ${rank} `)
 }
 
@@ -49,14 +50,24 @@ getTopper(students).then((res)=>{
     console.log("some problem arisen :",err)
 })
 
+// *************** just a random promise that will always reject
 
+function rejectPromise(){
+    return new Promise((resolve,reject)=>{
+        reject("rejected")
+    })
+}
 
 async function makeResult(){
 
     let topperStudent=await getTopper(students);
     console.log("topper while making result ",topperStudent)
+    let rejectedPromise=await rejectPromise().catch(err=>console.log("PRomise is rejected"))
+    console.log("just executed after promise rejection")
     
 
 
 }
 
+
+makeResult()
