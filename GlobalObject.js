@@ -18,3 +18,23 @@ console.log(globalThis)
     [Symbol(nodejs.util.promisify.custom)]: [Getter]
   }
 } */}
+
+
+// setTimeout(()=>{
+//     console.log("first function ")
+// },2000)
+let globalTotal1=100;
+let globalTotal2=100;
+
+var addTwoNumbers_1=(a,b)=>{
+    return a+b;
+}
+
+globalThis.addTwoNumbers_2=(a,b)=>{
+    return a+b;
+}
+
+// console.log(addTwoNumbers(3,4))
+
+console.log(globalThis.addTwoNumbers_2(3,4)+" "+globalThis.globalTota1,globalTotal2)
+// console.log(globalThis.addTwoNumbers_1(3,4))             //didn't get added to global
