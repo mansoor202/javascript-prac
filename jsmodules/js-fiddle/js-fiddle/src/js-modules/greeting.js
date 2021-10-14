@@ -1,3 +1,4 @@
+import '../js-modules/evaluatedModule.js'
 import getTopperFunc from './getTopper.js'
 let students = {
     "mansoor": 30,

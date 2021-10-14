@@ -1,4 +1,4 @@
-
+import '../js-modules/evaluatedModule.js'
 export default function getTopper(students) {
     return new Promise((resolve, reject) => {
         let topper={}
