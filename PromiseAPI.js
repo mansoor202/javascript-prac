@@ -84,3 +84,20 @@ Promise.race([
  
 })
 .catch(err=>console.log("promise.any failed"))
+
+
+
+Promise.allSettled([
+    checkAlphabetsOnly(input0),
+    checkLength(input0,5)
+])
+.then(res=>{
+    console.log("promise.allsettled resolved")
+        console.log(res.length,res)
+        globalThis.input0=res[0]
+      
+  
+     
+ 
+})
+.catch(err=>console.log("promise.allsettled rejected"))
