@@ -1,4 +1,4 @@
- let input0="jackbush"
+ var input0="jack"
  let input1="johnson"
  let input2="Mikal23"
 function checkAlphabetsOnly(input){
@@ -56,9 +56,31 @@ function checkLength(input,minLength){
 // .catch(err=>console.log(err))
 
 
-Promise.all([
-    checkAlphabetsOnly(input0),
-    checkLength(input0,5)
+// Promise.all([
+//     checkAlphabetsOnly(input1),
+//     checkLength(input1,5)
+// ])
+// .then(res=>{
+//     console.log("promise.all resolved")
+//     console.log(res.length)
+//     globalThis.input0=res[0]
+  
+//     console.log("valid input assigned ",globalThis.input0)
+ 
+// })
+// .catch(err=>console.log(err))
+
+Promise.race([
+    checkAlphabetsOnly(input1),
+    checkLength(input1,5)
 ])
-.then(res=>console.log("Promise.all resolved"))
-.catch(err=>console.log(err))
+.then(res=>{
+    console.log("promise.any resolved")
+        console.log(res.length,res)
+        globalThis.input0=res[0]
+      
+  
+     
+ 
+})
+.catch(err=>console.log("promise.any failed"))
