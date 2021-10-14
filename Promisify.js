@@ -1,5 +1,5 @@
 // promisifying same callback example I did before in callback.js
-
+const util = require('util');
 let students = {
     "mansoor": 30,
     "shabbir": 20,
@@ -10,36 +10,47 @@ let students = {
 
 function greetings(name, rank) {
     console.log(`congratulation ${name}: You stood ${rank} `)
+
 }
+function getTopper(students, greetings) {
 
 
-function getTopper(students) {
-    return new Promise((reslove,reject)=>{
+    let marks = Object.values(students)
+    let maxMArks = Math.max(...marks)
+    console.log("MAX :", maxMArks)
 
-        let marks = Object.values(students)
-        let maxMArks = Math.max(...marks)
-        console.log("MAX :", maxMArks)
-    
-        let stuArray = Object.entries(students)
-        stuArray.forEach(element => {
-            if (element[1] == maxMArks) {
-              reslove ({
-                  name:element[0],
-                  marks:maxMArks
-              })
-    
-    
-            }
-    
-    
-    
-        })
-        reject ("couldn't reolve")
-    
-    
+    let stuArray = Object.entries(students)
+    stuArray.forEach(element => {
+        if (element[1] == maxMArks) {
+            greetings(element[0], "1st")
+
+
+        }
+
+
 
     })
 
-   };
 
-getTopper(students).then(res=>console.log("topper student is ",res));
+
+
+};
+
+// getTopper(students).then(res=>console.log("topper student is ",res));
+
+
+// /// Writing a general promisify function 
+
+// const getSumPromise = myPromisify(getSumAsync)
+// const myPromisify = (fn) => {
+
+// }
+
+
+
+
+// util .promisify practice
+
+const shouldGreet = util.promisify(getTopper);
+
+shouldGreet(students,greetings).then((res) => console.log("output is ",res))
